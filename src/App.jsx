@@ -12,7 +12,7 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/website/">
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
