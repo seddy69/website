@@ -5,7 +5,7 @@ import Nav from '../components/Nav.jsx'
 import Footer from '../components/Footer.jsx'
 import { Ornament, SectionHeading, PageHero, VerseBanner } from '../components/shared.jsx'
 import C, { clip7, clip5 } from '../colors.js'
-
+ 
 // ── CONTACT INFO CARDS ────────────────────────────────────────────────────────
 const INFO_ITEMS = [
   {
@@ -28,7 +28,7 @@ const INFO_ITEMS = [
     lines: ['Every Sunday', '10:00 AM – 2:00 PM', 'Open to all children and youth'],
   },
 ]
-
+ 
 function InfoCard({ icon, title, titleAr, lines, highlight }) {
   return (
     <div style={{
@@ -51,18 +51,18 @@ function InfoCard({ icon, title, titleAr, lines, highlight }) {
     </div>
   )
 }
-
+ 
 // ── SOCIAL LINKS ──────────────────────────────────────────────────────────────
 function SocialLinks() {
   const [fbH, setFbH] = useState(false)
   const [ytH, setYtH] = useState(false)
   return (
     <div style={{ background: C.greenDeep, border: `2px solid ${C.gold}`, padding: '32px 28px' }}>
-
+ 
       {/* Contact details */}
       <div style={{ fontFamily: "'Cinzel', serif", fontSize: 15, fontWeight: 700, color: C.cream, letterSpacing: '0.08em', marginBottom: 4 }}>Get In Touch</div>
       <span style={{ fontFamily: "'Amiri', serif", fontSize: 17, color: C.gold, display: 'block', marginBottom: 20 }}>تواصل معنا</span>
-
+ 
       {[
         { icon: '✉️', label: 'Email', value: 'info@tristateislamic.center', href: 'mailto:info@tristateislamic.center' },
         { icon: '📞', label: 'Phone', value: '(563) 503-5588', href: 'tel:+15635035588' },
@@ -77,14 +77,14 @@ function SocialLinks() {
           </div>
         </a>
       ))}
-
+ 
       {/* Divider */}
       <div style={{ borderTop: '1px solid rgba(201,168,76,0.2)', margin: '20px 0' }} />
-
+ 
       {/* Social */}
       <div style={{ fontFamily: "'Cinzel', serif", fontSize: 15, fontWeight: 700, color: C.cream, letterSpacing: '0.08em', marginBottom: 4 }}>Follow Us</div>
       <span style={{ fontFamily: "'Amiri', serif", fontSize: 17, color: C.gold, display: 'block', marginBottom: 16 }}>تابعونا</span>
-
+ 
       <a
         href="https://www.facebook.com/TriStateIslamicCenter/"
         target="_blank" rel="noreferrer"
@@ -122,7 +122,7 @@ function SocialLinks() {
     </div>
   )
 }
-
+ 
 // ── CONTACT FORM ──────────────────────────────────────────────────────────────
 const SUBJECTS = [
   'General Inquiry',
@@ -134,14 +134,14 @@ const SUBJECTS = [
   'Visiting the Masjid',
   'Other',
 ]
-
+ 
 function ContactForm() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
   const [btnH, setBtnH] = useState(false)
-
+ 
   const update = (field) => (e) => setForm(prev => ({ ...prev, [field]: e.target.value }))
-
+ 
   const inputStyle = {
     width: '100%', padding: '13px 16px',
     border: `1px solid rgba(201,168,76,0.4)`,
@@ -149,13 +149,13 @@ function ContactForm() {
     fontSize: 16, color: C.textDark, outline: 'none',
     marginBottom: 18, display: 'block',
   }
-
+ 
   const labelStyle = {
     fontFamily: "'Cinzel', serif", fontSize: 11, fontWeight: 700,
     color: C.greenDeep, letterSpacing: '0.12em', textTransform: 'uppercase',
     display: 'block', marginBottom: 6,
   }
-
+ 
   if (submitted) {
     return (
       <div style={{ background: C.creamDark, border: `2px solid ${C.gold}`, padding: '60px 40px', textAlign: 'center' }}>
@@ -172,7 +172,7 @@ function ContactForm() {
       </div>
     )
   }
-
+ 
   return (
     <div style={{ background: C.creamDark, border: '1px solid rgba(201,168,76,0.3)', padding: '40px 36px' }}>
       <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 22, color: C.greenDeep, fontWeight: 700, letterSpacing: '0.05em', marginBottom: 6 }}>
@@ -181,9 +181,9 @@ function ContactForm() {
       <span style={{ fontFamily: "'Amiri', serif", fontSize: 18, color: C.gold, display: 'block', marginBottom: 28 }}>
         أرسل لنا رسالة
       </span>
-
+ 
       <form onSubmit={(e) => { e.preventDefault(); if (form.name && form.email && form.message) setSubmitted(true) }}>
-
+ 
         {/* Name + Email row */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
           <div>
@@ -195,7 +195,7 @@ function ContactForm() {
             <input type="email" placeholder="your@email.com" value={form.email} onChange={update('email')} required style={inputStyle} />
           </div>
         </div>
-
+ 
         {/* Phone + Subject row */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
           <div>
@@ -210,7 +210,7 @@ function ContactForm() {
             </select>
           </div>
         </div>
-
+ 
         {/* Message */}
         <div>
           <label style={labelStyle}>Message *</label>
@@ -221,7 +221,7 @@ function ContactForm() {
             style={{ ...inputStyle, resize: 'vertical', lineHeight: 1.7 }}
           />
         </div>
-
+ 
         {/* Submit */}
         <button
           type="submit"
@@ -235,7 +235,7 @@ function ContactForm() {
         >
           Send Message
         </button>
-
+ 
         <p style={{ marginTop: 16, fontSize: 14, color: 'rgba(61,46,30,0.55)', fontStyle: 'italic' }}>
           * Required fields. We typically respond within 1–2 business days.
         </p>
@@ -243,44 +243,7 @@ function ContactForm() {
     </div>
   )
 }
-
-// ── MAP EMBED ─────────────────────────────────────────────────────────────────
-function MapSection() {
-  return (
-    <div style={{ width: '100%', borderTop: '1px solid rgba(201,168,76,0.25)', borderBottom: '1px solid rgba(201,168,76,0.25)' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '60px 40px' }}>
-        <SectionHeading en="Find Us" ar="موقعنا" />
-        <Ornament />
-        <div style={{ marginTop: 36, border: `3px solid ${C.gold}`, overflow: 'hidden', position: 'relative' }}>
-          <iframe
-            title="Tri-State Islamic Center Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2952.0!2d-90.7!3d42.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87e2195b2e5e7b5b%3A0x1234567890abcdef!2sTriState+Islamic+Center%2C+Dubuque%2C+IA!5e0!3m2!1sen!2sus!4v1700000000000"
-            width="100%"
-            height="420"
-            style={{ display: 'block', border: 'none', filter: 'sepia(20%) contrast(1.1)' }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-          {/* Gold overlay bar */}
-          <div style={{ background: C.greenDeep, borderTop: `3px solid ${C.gold}`, padding: '14px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-            <span style={{ fontFamily: "'Amiri', serif", fontSize: 16, color: C.goldLight }}>
-              📍 Tri-State Islamic Center · Dubuque, Iowa
-            </span>
-            <a
-              href="https://maps.google.com/?q=Tri-State+Islamic+Center+Dubuque+Iowa"
-              target="_blank" rel="noreferrer"
-              style={{ fontFamily: "'Cinzel', serif", fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', color: C.gold, textDecoration: 'none', border: `1px solid ${C.gold}`, padding: '6px 16px' }}
-            >
-              OPEN IN MAPS ↗
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
+ 
 // ── PAGE ──────────────────────────────────────────────────────────────────────
 export default function ContactPage() {
   return (
@@ -288,7 +251,7 @@ export default function ContactPage() {
       <TopBanner />
       <Header />
       <Nav />
-
+ 
       <PageHero
         arabicTitle="تواصل معنا"
         englishTitle="Contact Us"
@@ -300,36 +263,14 @@ export default function ContactPage() {
           </>
         }
       />
-
-      {/* Info cards + form */}
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '70px 40px' }}>
-
-        {/* Top info row */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, marginBottom: 60 }}>
-          {INFO_ITEMS.map(item => <InfoCard key={item.title} {...item} />)}
-        </div>
-
-        {/* Form + social side by side */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 32, alignItems: 'start' }}>
-          <ContactForm />
-          <SocialLinks />
-        </div>
-      </div>
-
-      {/* Verse */}
-      <VerseBanner
-        arabic="وَقُل رَّبِّ زِدْنِي عِلْمًا"
-        translation='"And say: My Lord, increase me in knowledge."'
-        reference="Surah Ta-Ha, 20:114"
-      />
-
+ 
       {/* Visit Us */}
       <div style={{ width: '100%', backgroundColor: C.creamDark, borderTop: '1px solid rgba(201,168,76,0.25)', borderBottom: '1px solid rgba(201,168,76,0.25)', padding: '70px 40px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <SectionHeading en="Visit Us" ar="زورونا" />
           <Ornament />
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 28, marginTop: 40 }}>
-
+ 
             <div style={{ background: C.cream, border: '1px solid rgba(201,168,76,0.3)', borderTop: `4px solid ${C.greenMid}`, padding: '28px 26px' }}>
               <div style={{ fontSize: 28, marginBottom: 12 }}>🕌</div>
               <h3 style={{ fontFamily: "'Cinzel', serif", fontSize: 14, fontWeight: 700, color: C.greenDeep, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>Planning a Visit</h3>
@@ -337,7 +278,7 @@ export default function ContactPage() {
                 We welcome visits from religious groups, schools, and interested organizations. All visits must be prearranged and approved by the executive board. Most weekdays can be accommodated — Friday visits are difficult due to congregational prayer, but you are welcome to attend the Friday sermon if arranged in advance.
               </p>
             </div>
-
+ 
             <div style={{ background: C.cream, border: '1px solid rgba(201,168,76,0.3)', borderTop: `4px solid ${C.greenMid}`, padding: '28px 26px' }}>
               <div style={{ fontSize: 28, marginBottom: 12 }}>🧎</div>
               <h3 style={{ fontFamily: "'Cinzel', serif", fontSize: 14, fontWeight: 700, color: C.greenDeep, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>The Prayer Hall</h3>
@@ -345,7 +286,7 @@ export default function ContactPage() {
                 The prayer hall is a large carpeted area where prayers are performed directly on the floor — including prostrations. To keep the carpet clean, all shoes must be removed before entering and placed on racks outside. If removing your shoes is difficult, please let us know in advance so we can provide shoe covers.
               </p>
             </div>
-
+ 
             <div style={{ background: C.cream, border: '1px solid rgba(201,168,76,0.3)', borderTop: `4px solid ${C.greenMid}`, padding: '28px 26px' }}>
               <div style={{ fontSize: 28, marginBottom: 12 }}>👔</div>
               <h3 style={{ fontFamily: "'Cinzel', serif", fontSize: 14, fontWeight: 700, color: C.greenDeep, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>Dress Code</h3>
@@ -353,14 +294,33 @@ export default function ContactPage() {
                 All guests are asked to dress modestly, as befitting a house of worship — no shorts, sleeveless tops, or revealing attire. Women visitors are encouraged (but not required) to wear a headscarf. Use the contact form to request a visit.
               </p>
             </div>
-
+ 
           </div>
         </div>
       </div>
-
-      {/* Map */}
-      <MapSection />
-
+ 
+      {/* Verse */}
+      <VerseBanner
+        arabic="وَقُل رَّبِّ زِدْنِي عِلْمًا"
+        translation='"And say: My Lord, increase me in knowledge."'
+        reference="Surah Ta-Ha, 20:114"
+      />
+ 
+      {/* Info cards + form */}
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '70px 40px' }}>
+ 
+        {/* Top info row */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, marginBottom: 60 }}>
+          {INFO_ITEMS.map(item => <InfoCard key={item.title} {...item} />)}
+        </div>
+ 
+        {/* Form + social side by side */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 32, alignItems: 'start' }}>
+          <ContactForm />
+          <SocialLinks />
+        </div>
+      </div>
+ 
       <Footer />
     </div>
   )
