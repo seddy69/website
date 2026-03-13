@@ -58,8 +58,33 @@ function SocialLinks() {
   const [ytH, setYtH] = useState(false)
   return (
     <div style={{ background: C.greenDeep, border: `2px solid ${C.gold}`, padding: '32px 28px' }}>
+
+      {/* Contact details */}
+      <div style={{ fontFamily: "'Cinzel', serif", fontSize: 15, fontWeight: 700, color: C.cream, letterSpacing: '0.08em', marginBottom: 4 }}>Get In Touch</div>
+      <span style={{ fontFamily: "'Amiri', serif", fontSize: 17, color: C.gold, display: 'block', marginBottom: 20 }}>تواصل معنا</span>
+
+      {[
+        { icon: '✉️', label: 'Email', value: 'info@tristateislamic.center', href: 'mailto:info@tristateislamic.center' },
+        { icon: '📞', label: 'Phone', value: '(563) 503-5588', href: 'tel:+15635035588' },
+        { icon: '📍', label: 'Address', value: '4980 Radford Ct, Dubuque, IA 52002', href: 'https://maps.google.com/?q=4980+Radford+Ct+Dubuque+IA+52002' },
+      ].map(({ icon, label, value, href }) => (
+        <a key={label} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noreferrer"
+          style={{ display: 'flex', alignItems: 'flex-start', gap: 12, marginBottom: 16, textDecoration: 'none' }}>
+          <span style={{ fontSize: 18, flexShrink: 0, marginTop: 2 }}>{icon}</span>
+          <div>
+            <div style={{ fontFamily: "'Cinzel', serif", fontSize: 10, fontWeight: 700, color: C.gold, letterSpacing: '0.12em', marginBottom: 2 }}>{label.toUpperCase()}</div>
+            <div style={{ fontSize: 14, color: 'rgba(253,246,232,0.8)', lineHeight: 1.5 }}>{value}</div>
+          </div>
+        </a>
+      ))}
+
+      {/* Divider */}
+      <div style={{ borderTop: '1px solid rgba(201,168,76,0.2)', margin: '20px 0' }} />
+
+      {/* Social */}
       <div style={{ fontFamily: "'Cinzel', serif", fontSize: 15, fontWeight: 700, color: C.cream, letterSpacing: '0.08em', marginBottom: 4 }}>Follow Us</div>
-      <span style={{ fontFamily: "'Amiri', serif", fontSize: 17, color: C.gold, display: 'block', marginBottom: 20 }}>تابعونا</span>
+      <span style={{ fontFamily: "'Amiri', serif", fontSize: 17, color: C.gold, display: 'block', marginBottom: 16 }}>تابعونا</span>
+
       <a
         href="https://www.facebook.com/TriStateIslamicCenter/"
         target="_blank" rel="noreferrer"
@@ -297,6 +322,41 @@ export default function ContactPage() {
         translation='"And say: My Lord, increase me in knowledge."'
         reference="Surah Ta-Ha, 20:114"
       />
+
+      {/* Visit Us */}
+      <div style={{ width: '100%', backgroundColor: C.creamDark, borderTop: '1px solid rgba(201,168,76,0.25)', borderBottom: '1px solid rgba(201,168,76,0.25)', padding: '70px 40px' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+          <SectionHeading en="Visit Us" ar="زورونا" />
+          <Ornament />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 28, marginTop: 40 }}>
+
+            <div style={{ background: C.cream, border: '1px solid rgba(201,168,76,0.3)', borderTop: `4px solid ${C.greenMid}`, padding: '28px 26px' }}>
+              <div style={{ fontSize: 28, marginBottom: 12 }}>🕌</div>
+              <h3 style={{ fontFamily: "'Cinzel', serif", fontSize: 14, fontWeight: 700, color: C.greenDeep, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>Planning a Visit</h3>
+              <p style={{ fontSize: 15, color: C.textMid, lineHeight: 1.75 }}>
+                We welcome visits from religious groups, schools, and interested organizations. All visits must be prearranged and approved by the executive board. Most weekdays can be accommodated — Friday visits are difficult due to congregational prayer, but you are welcome to attend the Friday sermon if arranged in advance.
+              </p>
+            </div>
+
+            <div style={{ background: C.cream, border: '1px solid rgba(201,168,76,0.3)', borderTop: `4px solid ${C.greenMid}`, padding: '28px 26px' }}>
+              <div style={{ fontSize: 28, marginBottom: 12 }}>🧎</div>
+              <h3 style={{ fontFamily: "'Cinzel', serif", fontSize: 14, fontWeight: 700, color: C.greenDeep, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>The Prayer Hall</h3>
+              <p style={{ fontSize: 15, color: C.textMid, lineHeight: 1.75 }}>
+                The prayer hall is a large carpeted area where prayers are performed directly on the floor — including prostrations. To keep the carpet clean, all shoes must be removed before entering and placed on racks outside. If removing your shoes is difficult, please let us know in advance so we can provide shoe covers.
+              </p>
+            </div>
+
+            <div style={{ background: C.cream, border: '1px solid rgba(201,168,76,0.3)', borderTop: `4px solid ${C.greenMid}`, padding: '28px 26px' }}>
+              <div style={{ fontSize: 28, marginBottom: 12 }}>👔</div>
+              <h3 style={{ fontFamily: "'Cinzel', serif", fontSize: 14, fontWeight: 700, color: C.greenDeep, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>Dress Code</h3>
+              <p style={{ fontSize: 15, color: C.textMid, lineHeight: 1.75 }}>
+                All guests are asked to dress modestly, as befitting a house of worship — no shorts, sleeveless tops, or revealing attire. Women visitors are encouraged (but not required) to wear a headscarf. Use the contact form to request a visit.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
 
       {/* Map */}
       <MapSection />
