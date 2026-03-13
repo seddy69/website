@@ -37,59 +37,131 @@ function MissionSection() {
   )
 }
 
-// ── PILLARS ──────────────────────────────────────────────────────────────────
-const PILLARS = [
-  { icon: '🤲', ar: 'الإيمان', en: 'Faith (Iman)',            desc: 'We are grounded in the belief in Allah, His angels, His books, His messengers, the Last Day, and divine decree.' },
-  { icon: '🕌', ar: 'العبادة', en: 'Worship (Ibadah)',        desc: 'We uphold the five pillars of Islam and strive to make the masjid a living center of sincere devotion to Allah.' },
-  { icon: '📖', ar: 'العلم',   en: 'Knowledge (Ilm)',         desc: 'Seeking and sharing knowledge is a sacred duty. We offer classes and resources rooted in the Quran and Sunnah.' },
-  { icon: '🤝', ar: 'الأخوة', en: 'Brotherhood (Ukhuwwah)',  desc: 'The bond between believers transcends ethnicity and nationality. All are equal in the eyes of Allah.' },
-  { icon: '💛', ar: 'الرحمة', en: 'Mercy (Rahmah)',          desc: 'Following the example of the Prophet ﷺ, we extend compassion and care to all people — Muslim and non-Muslim.' },
-  { icon: '🌍', ar: 'الخدمة', en: 'Service (Khidmah)',       desc: 'We are committed to serving our local community, supporting those in need, and contributing to the good of society.' },
+// ── LEADERSHIP ───────────────────────────────────────────────────────────────
+
+// ── TO UPDATE: Replace `photo: null` with a URL string to show a real photo.
+// ── Example:  photo: 'https://yoursite.com/uploads/president.jpg'
+// ──           photo: '/photos/president.jpg'  (if stored in /public/photos/)
+
+const EXECUTIVE_BOARD = [
+  {
+    photo: null,
+    name: 'firstname lastname',       // ← REPLACE with President's name
+    role: 'President',
+    roleAr: 'الرئيس',
+    desc: 'Leads the Islamic Center, presides over board meetings, and represents the organization in the community.',
+  },
+  {
+    photo: null,
+    name: 'firstname lastname',       // ← REPLACE with Vice-President's name
+    role: 'Vice-President',
+    roleAr: 'نائب الرئيس',
+    desc: 'Supports the President in all duties and assumes presidential responsibilities when needed.',
+  },
+  {
+    photo: null,
+    name: 'firstname lastname',       // ← REPLACE with Treasurer's name
+    role: 'Treasurer',
+    roleAr: 'أمين الصندوق',
+    desc: 'Manages the financial affairs of the Islamic Center, including budgeting, accounting, and financial reporting.',
+  },
+  {
+    photo: null,
+    name: 'firstname lastname',       // ← REPLACE with Social Secretary's name
+    role: 'Social Secretary',
+    roleAr: 'السكرتير الاجتماعي',
+    desc: 'Organizes community events, manages communications, and fosters relationships within the congregation.',
+  },
+  {
+    photo: null,
+    name: 'firstname lastname',       // ← REPLACE with General Secretary's name
+    role: 'General Secretary',
+    roleAr: 'الأمين العام',
+    desc: 'Maintains records, handles correspondence, and ensures smooth day-to-day administration of the center.',
+  },
 ]
 
-function PillarCard({ icon, ar, en, desc }) {
-  const [h, setH] = useState(false)
-  return (
-    <div onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
-      style={{ background: h ? 'rgba(201,168,76,0.08)' : 'rgba(255,255,255,0.04)', border: `1px solid ${h ? C.gold : 'rgba(201,168,76,0.2)'}`, padding: '36px 28px', textAlign: 'center', transition: 'background 0.2s, border-color 0.2s' }}>
-      <span style={{ fontSize: 36, display: 'block', marginBottom: 12 }}>{icon}</span>
-      <span style={{ fontFamily: "'Amiri', serif", fontSize: 22, color: C.gold, display: 'block', marginBottom: 6 }}>{ar}</span>
-      <div style={{ fontFamily: "'Cinzel', serif", fontSize: 13, color: C.cream, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>{en}</div>
-      <p style={{ fontSize: 15, color: 'rgba(253,246,232,0.75)', lineHeight: 1.7 }}>{desc}</p>
-    </div>
-  )
-}
+const ADVISORY_BOARD = [
+  { photo: null, name: 'firstname lastname' },   // ← REPLACE
+  { photo: null, name: 'firstname lastname' },   // ← REPLACE
+  { photo: null, name: 'firstname lastname' },   // ← REPLACE
+  { photo: null, name: 'firstname lastname' },   // ← REPLACE
+  { photo: null, name: 'firstname lastname' },   // ← REPLACE
+  { photo: null, name: 'firstname lastname' },   // ← REPLACE
+]
 
-function PillarsSection() {
+// Photo placeholder shown when no photo URL is provided yet
+function PhotoPlaceholder({ initials }) {
   return (
-    <div style={{ width: '100%', backgroundColor: C.greenDeep, backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(201,168,76,0.03) 30px, rgba(201,168,76,0.03) 31px)', borderTop: '1px solid rgba(201,168,76,0.2)', borderBottom: '1px solid rgba(201,168,76,0.2)', padding: '70px 40px' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        <SectionHeading en="Our Core Values" ar="قيمنا الأساسية" light />
-        <Ornament />
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, marginTop: 40 }}>
-          {PILLARS.map(p => <PillarCard key={p.en} {...p} />)}
+    <div style={{
+      width: '100%', aspectRatio: '1 / 1',
+      background: `linear-gradient(135deg, ${C.greenDeep}, ${C.greenMid})`,
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      borderBottom: `3px solid ${C.gold}`,
+    }}>
+      <div style={{ textAlign: 'center' }}>
+        <div style={{ fontFamily: "'Amiri', serif", fontSize: 48, color: C.gold, lineHeight: 1, marginBottom: 8 }}>
+          {initials}
+        </div>
+        <div style={{ fontFamily: "'Cinzel', serif", fontSize: 10, color: 'rgba(201,168,76,0.5)', letterSpacing: '0.12em' }}>
+          PHOTO PENDING
         </div>
       </div>
     </div>
   )
 }
 
-// ── LEADERSHIP ───────────────────────────────────────────────────────────────
-const LEADERS = [
-  { avatar: 'إ', name: 'Imam / Khateeb',      role: 'إمام المسجد',   desc: 'Leads congregational prayers, delivers the Friday Khutbah, and provides spiritual guidance to the community.' },
-  { avatar: 'م', name: 'Board of Directors',   role: 'مجلس الإدارة',  desc: 'Elected community members who oversee the administration, finances, and long-term vision of the Islamic Center.' },
-  { avatar: 'ع', name: 'Education Committee',  role: 'لجنة التعليم',  desc: 'Dedicated volunteers who organize classes, lectures, and educational programs for children and adults.' },
-]
+function getInitials(name) {
+  return name
+    .split(' ')
+    .map(w => w[0]?.toUpperCase() || '')
+    .slice(0, 2)
+    .join('')
+}
 
-function LeaderCard({ avatar, name, role, desc }) {
+function ExecutiveCard({ photo, name, role, roleAr, desc }) {
+  const initials = getInitials(name)
   return (
-    <div style={{ background: C.creamDark, border: '1px solid rgba(201,168,76,0.3)', padding: '36px 28px', textAlign: 'center' }}>
-      <div style={{ width: 80, height: 80, borderRadius: '50%', background: C.greenDeep, border: `3px solid ${C.gold}`, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', fontFamily: "'Amiri', serif", fontSize: 32, color: C.gold }}>
-        {avatar}
+    <div style={{ background: C.creamDark, border: '1px solid rgba(201,168,76,0.3)', overflow: 'hidden' }}>
+      {/* Photo area */}
+      <div style={{ position: 'relative' }}>
+        {photo
+          ? <img src={photo} alt={name} style={{ width: '100%', aspectRatio: '1 / 1', objectFit: 'cover', display: 'block', borderBottom: `3px solid ${C.gold}` }} />
+          : <PhotoPlaceholder initials={initials} />
+        }
+        {/* Role badge overlay */}
+        <div style={{
+          position: 'absolute', bottom: 0, left: 0, right: 0,
+          background: 'linear-gradient(to top, rgba(26,60,46,0.95), transparent)',
+          padding: '24px 16px 10px',
+        }}>
+          <span style={{ fontFamily: "'Cinzel', serif", fontSize: 11, fontWeight: 700, color: C.gold, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+            {role}
+          </span>
+        </div>
       </div>
-      <div style={{ fontFamily: "'Cinzel', serif", fontSize: 16, fontWeight: 700, color: C.greenDeep, marginBottom: 6 }}>{name}</div>
-      <span style={{ fontFamily: "'Amiri', serif", fontSize: 17, color: C.gold, display: 'block', marginBottom: 14 }}>{role}</span>
-      <p style={{ fontSize: 15, color: C.textMid, lineHeight: 1.7 }}>{desc}</p>
+      {/* Text */}
+      <div style={{ padding: '20px 22px 26px' }}>
+        <div style={{ fontFamily: "'Cinzel', serif", fontSize: 15, fontWeight: 700, color: C.greenDeep, marginBottom: 4 }}>{name}</div>
+        <span style={{ fontFamily: "'Amiri', serif", fontSize: 16, color: C.gold, display: 'block', marginBottom: 10 }}>{roleAr}</span>
+        <p style={{ fontSize: 14, color: C.textMid, lineHeight: 1.7 }}>{desc}</p>
+      </div>
+    </div>
+  )
+}
+
+function AdvisoryCard({ photo, name }) {
+  const initials = getInitials(name)
+  return (
+    <div style={{ background: C.creamDark, border: '1px solid rgba(201,168,76,0.3)', overflow: 'hidden', textAlign: 'center' }}>
+      {photo
+        ? <img src={photo} alt={name} style={{ width: '100%', aspectRatio: '1 / 1', objectFit: 'cover', display: 'block', borderBottom: `3px solid ${C.gold}` }} />
+        : <PhotoPlaceholder initials={initials} />
+      }
+      <div style={{ padding: '16px 16px 20px' }}>
+        <div style={{ fontFamily: "'Cinzel', serif", fontSize: 14, fontWeight: 700, color: C.greenDeep, marginBottom: 4 }}>{name}</div>
+        <span style={{ fontFamily: "'Amiri', serif", fontSize: 15, color: C.gold }}>Advisory Board Member</span>
+      </div>
     </div>
   )
 }
@@ -97,12 +169,44 @@ function LeaderCard({ avatar, name, role, desc }) {
 function LeadershipSection() {
   return (
     <section style={{ padding: '70px 0' }}>
+
+      {/* ── Executive Board ── */}
       <SectionHeading en="Our Leadership" ar="قيادتنا" />
       <Ornament />
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 28, marginTop: 40 }}>
-        {LEADERS.map(l => <LeaderCard key={l.name} {...l} />)}
+
+      <h3 style={{ fontFamily: "'Cinzel', serif", fontSize: 16, fontWeight: 700, color: C.greenDeep, letterSpacing: '0.14em', textTransform: 'uppercase', textAlign: 'center', marginTop: 40, marginBottom: 6 }}>
+        Executive Board
+      </h3>
+      <div style={{ fontFamily: "'Amiri', serif", fontSize: 18, color: C.gold, textAlign: 'center', marginBottom: 32 }}>
+        مجلس التنفيذي
       </div>
-      <p style={{ textAlign: 'center', marginTop: 32, fontFamily: "'Amiri', serif", fontSize: 16, color: C.textMid }}>
+
+      {/* First row: 3 cards */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 28, marginBottom: 28 }}>
+        {EXECUTIVE_BOARD.slice(0, 3).map(m => <ExecutiveCard key={m.role} {...m} />)}
+      </div>
+      {/* Second row: 2 cards centered */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 28, marginBottom: 60 }}>
+        <div /> {/* spacer */}
+        {EXECUTIVE_BOARD.slice(3).map(m => <ExecutiveCard key={m.role} {...m} />)}
+      </div>
+
+      {/* Divider */}
+      <div style={{ borderTop: `1px solid rgba(201,168,76,0.25)`, marginBottom: 60 }} />
+
+      {/* ── Advisory Board ── */}
+      <h3 style={{ fontFamily: "'Cinzel', serif", fontSize: 16, fontWeight: 700, color: C.greenDeep, letterSpacing: '0.14em', textTransform: 'uppercase', textAlign: 'center', marginBottom: 6 }}>
+        Advisory Board
+      </h3>
+      <div style={{ fontFamily: "'Amiri', serif", fontSize: 18, color: C.gold, textAlign: 'center', marginBottom: 32 }}>
+        المجلس الاستشاري
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 28, marginBottom: 40 }}>
+        {ADVISORY_BOARD.map((m, i) => <AdvisoryCard key={i} {...m} />)}
+      </div>
+
+      <p style={{ textAlign: 'center', fontFamily: "'Amiri', serif", fontSize: 16, color: C.textMid }}>
         To contact our leadership or inquire about the center, please visit our{' '}
         <a href="https://tristateislamic.center/contact/" style={{ color: C.greenMid, fontWeight: 600 }}>Contact page</a>.
       </p>
@@ -194,8 +298,6 @@ export default function AboutPage() {
         translation='"The mosques of Allah are only to be maintained by those who believe in Allah and the Last Day."'
         reference="Surah At-Tawbah, 9:18"
       />
-
-      <PillarsSection />
 
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 40px' }}>
         <LeadershipSection />
