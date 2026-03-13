@@ -38,7 +38,7 @@ function IntroSection() {
 
 // ── LECTURES ──────────────────────────────────────────────────────────────────
 const LECTURES = [
-  { icon: '🕌', title: "Jumu'ah Khutbah",          ar: 'خطبة الجمعة',          desc: 'The weekly Friday sermon delivered to the congregation, covering topics of faith, community, and current affairs in the light of Islam.',                                          time: 'Every Friday · 1:15 PM' },
+  { icon: '🕌', title: "Jumu'ah Khutbah",          ar: 'خطبة الجمعة',          desc: 'The weekly Friday sermon delivered to the congregation, covering topics of faith, community, and current affairs in the light of Islam.',                                          time: 'Every Friday · 1:30 PM' },
   { icon: '🌙', title: 'Eid Khutbah',               ar: 'خطبة العيد',           desc: 'Special sermon delivered on the mornings of Eid al-Fitr and Eid al-Adha, celebrating the blessings of Allah with the whole community.',                                            time: 'Eid Morning · 8:30 AM' },
   { icon: '📖', title: 'Sunday Islamic School',     ar: 'المدرسة الإسلامية',    desc: 'Weekly Islamic education classes for children and youth covering Quran recitation, Arabic, Islamic studies, and character development.',                                             time: 'Every Sunday · 10AM – 2PM' },
   { icon: '🎙️', title: 'Halaqah Lecture Series',   ar: 'سلسلة الحلقات',        desc: 'Regular gatherings featuring guest scholars and speakers who deliver educational talks on Islamic topics for adults and youth alike.' },
@@ -73,43 +73,6 @@ function LecturesSection() {
         </div>
       </div>
     </div>
-  )
-}
-
-// ── PASTORAL SERVICES ────────────────────────────────────────────────────────
-const PASTORAL = [
-  { icon: '🍽️', title: 'Feed the Needy',            ar: 'إطعام المحتاجين',         desc: 'Our community outreach program dedicated to feeding those in need in Dubuque. Rooted in the Islamic duty of charity and care for the less fortunate.' },
-  { icon: '💍', title: 'Nikah (Islamic Marriage)',   ar: 'عقد الزواج الإسلامي',     desc: 'The Islamic Center facilitates the Nikah ceremony in accordance with Islamic law, solemnizing marriages for Muslim couples in the community.' },
-  { icon: '👶', title: 'Aqiqah (Child Ceremony)',    ar: 'العقيقة',                 desc: 'Celebrating the birth of a new child with the traditional Islamic Aqiqah ceremony — a blessed occasion of gratitude and naming for the family.' },
-  { icon: '🕊️', title: 'Janazah (Funeral Services)',ar: 'صلاة الجنازة',            desc: 'We provide full Islamic funeral rites — Ghusl, Kafan, Salat al-Janazah, and burial — with dignity and care in accordance with the Sunnah.' },
-  { icon: '🤝', title: 'Counseling',                ar: 'الإرشاد والتوجيه',        desc: 'Pastoral counseling and guidance is available for community members facing personal, family, or spiritual challenges, grounded in Islamic values.' },
-  { icon: '⚰️', title: 'Islamic Cemetery',          ar: 'المقبرة الإسلامية',        desc: 'The center maintains an Islamic cemetery providing dignified burial plots for Muslims in the Dubuque region, in accordance with Islamic requirements.' },
-]
-
-function ServiceCard({ icon, title, ar, desc }) {
-  const [h, setH] = useState(false)
-  return (
-    <div onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
-      style={{ background: h ? C.creamDark : C.cream, border: `1px solid ${h ? C.gold : 'rgba(201,168,76,0.3)'}`, borderLeft: `4px solid ${C.greenMid}`, padding: '28px 24px', display: 'flex', gap: 20, alignItems: 'flex-start', transition: 'background 0.2s, border-color 0.2s' }}>
-      <span style={{ fontSize: 32, flexShrink: 0, lineHeight: 1 }}>{icon}</span>
-      <div>
-        <h3 style={{ fontFamily: "'Cinzel', serif", fontSize: 15, fontWeight: 700, color: C.greenDeep, letterSpacing: '0.07em', marginBottom: 4 }}>{title}</h3>
-        <span style={{ fontFamily: "'Amiri', serif", fontSize: 17, color: C.gold, display: 'block', marginBottom: 10 }}>{ar}</span>
-        <p style={{ fontSize: 15, color: C.textMid, lineHeight: 1.7 }}>{desc}</p>
-      </div>
-    </div>
-  )
-}
-
-function PastoralSection() {
-  return (
-    <section style={{ padding: '70px 0' }}>
-      <SectionHeading en="Pastoral & Community Services" ar="الخدمات الدينية والاجتماعية" />
-      <Ornament />
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24, marginTop: 40 }}>
-        {PASTORAL.map(s => <ServiceCard key={s.title} {...s} />)}
-      </div>
-    </section>
   )
 }
 
@@ -184,10 +147,6 @@ export default function ServicesPage() {
       />
 
       <LecturesSection />
-
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 40px' }}>
-        <PastoralSection />
-      </div>
 
       <OutreachSection />
       <CTAStrip />
