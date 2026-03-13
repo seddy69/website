@@ -141,10 +141,9 @@ function ExecutiveCard({ photo, name, role, roleAr, desc }) {
         </div>
       </div>
       {/* Text */}
-      <div style={{ padding: '20px 22px 26px' }}>
+      <div style={{ padding: '18px 22px 20px' }}>
         <div style={{ fontFamily: "'Cinzel', serif", fontSize: 15, fontWeight: 700, color: C.greenDeep, marginBottom: 4 }}>{name}</div>
-        <span style={{ fontFamily: "'Amiri', serif", fontSize: 16, color: C.gold, display: 'block', marginBottom: 10 }}>{roleAr}</span>
-        <p style={{ fontSize: 14, color: C.textMid, lineHeight: 1.7 }}>{desc}</p>
+        <span style={{ fontFamily: "'Amiri', serif", fontSize: 16, color: C.gold, display: 'block' }}>{roleAr}</span>
       </div>
     </div>
   )
@@ -186,9 +185,12 @@ function LeadershipSection() {
         {EXECUTIVE_BOARD.slice(0, 3).map(m => <ExecutiveCard key={m.role} {...m} />)}
       </div>
       {/* Second row: 2 cards centered */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 28, marginBottom: 60 }}>
-        <div /> {/* spacer */}
-        {EXECUTIVE_BOARD.slice(3).map(m => <ExecutiveCard key={m.role} {...m} />)}
+      <div style={{ display: 'flex', justifyContent: 'center', gap: 28, marginBottom: 60 }}>
+        {EXECUTIVE_BOARD.slice(3).map(m => (
+          <div key={m.role} style={{ width: 'calc(33.333% - 14px)' }}>
+            <ExecutiveCard {...m} />
+          </div>
+        ))}
       </div>
 
       {/* Divider */}
